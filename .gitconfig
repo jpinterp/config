@@ -1,0 +1,21 @@
+[user]
+	name = jeffpi
+	email = jeff.pinterparsons@citrix.com
+[gui]
+	recentrepo = D:/work/pvs_develop_g/src
+[diff]
+    tool = VisualStudio
+[difftool]
+    prompt = true
+[difftool "VisualStudio"]
+    cmd = \"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\IDE\\vsdiffmerge.exe\" \"$LOCAL\" \"$REMOTE\" //t
+[merge]
+	tool = VisualStudio
+[mergetool]
+	prompt = true
+[mergetool "VisualStudio"]
+    cmd = \"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\IDE\\vsdiffmerge.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\" //m
+	keepbackup = false
+	trustexistcode = false
+[core]
+	editor = gvim
