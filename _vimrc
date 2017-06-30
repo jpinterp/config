@@ -12,6 +12,7 @@ if has ("gui_running")
 	hi DiffDelete       ctermbg=235  ctermfg=131  guibg=#262626 guifg=#af5f5f cterm=reverse        gui=reverse
 	hi DiffText         ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse        gui=reverse
 endif
+set backspace=indent,eol,start
 " Don't bother with VI compatibility
 set nocompatible
 set history=50
