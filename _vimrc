@@ -4,7 +4,13 @@ if has ("gui_running")
 		set guifont=Courier_New:h9
 	endif
 	colors zenburn
-	set lines=50 columns=120
+	if &diff
+		" wide during diff to see both files
+		set lines=50 columns=200
+	else
+		" narrow for editing text
+		set lines=50 columns=120
+	endif
 	" Diff colors taken from theApprentice color scheme
 	" https://github.com/romainl/Apprentice/blob/master/colors/apprentice.vim
 	hi DiffAdd          ctermbg=235  ctermfg=108  guibg=#262626 guifg=#87af87 cterm=reverse        gui=reverse
