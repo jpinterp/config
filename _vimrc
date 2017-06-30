@@ -4,9 +4,14 @@ if has ("gui_running")
 		set guifont=Courier_New:h9
 	endif
 	colors zenburn
-	set lines=50 columns=100
+	set lines=50 columns=120
+	" Diff colors taken from theApprentice color scheme
+	" https://github.com/romainl/Apprentice/blob/master/colors/apprentice.vim
+	hi DiffAdd          ctermbg=235  ctermfg=108  guibg=#262626 guifg=#87af87 cterm=reverse        gui=reverse
+	hi DiffChange       ctermbg=235  ctermfg=103  guibg=#262626 guifg=#8787af cterm=reverse        gui=reverse
+	hi DiffDelete       ctermbg=235  ctermfg=131  guibg=#262626 guifg=#af5f5f cterm=reverse        gui=reverse
+	hi DiffText         ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse        gui=reverse
 endif
-set backspace=indent,eol,start
 " Don't bother with VI compatibility
 set nocompatible
 set history=50
@@ -48,3 +53,9 @@ nnoremap gn :bn<CR>
 nnoremap gl :ls<CR>
 " List all possible buffers with "gb" and accept a new buffer argument [1]
 nnoremap gb :ls<CR>:b"
+
+" For running Git diffs on Windows
+if has ("win32")
+	set shell=c:\windows\system32\cmd.exe
+	set diffexpr=
+endif	
