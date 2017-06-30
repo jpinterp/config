@@ -1,6 +1,8 @@
 syntax on
 if has ("gui_running")
-	set guifont=Courier_New:h9
+	if has ("win32")
+		set guifont=Courier_New:h9
+	endif
 	colors zenburn
 	set lines=50 columns=100
 endif
