@@ -6,10 +6,10 @@ if has ("gui_running")
 	colors zenburn
 	if &diff
 		" wide during diff to see both files
-		set lines=50 columns=200
+		set columns=200
 	else
 		" narrow for editing text
-		set lines=50 columns=120
+		set columns=120
 	endif
 	" Diff colors taken from theApprentice color scheme
 	" https://github.com/romainl/Apprentice/blob/master/colors/apprentice.vim
@@ -18,6 +18,7 @@ if has ("gui_running")
 	hi DiffDelete       ctermbg=235  ctermfg=131  guibg=#262626 guifg=#af5f5f cterm=reverse        gui=reverse
 	hi DiffText         ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse        gui=reverse
 endif
+set lines=50
 set backspace=indent,eol,start
 " Don't bother with VI compatibility
 set nocompatible
@@ -61,8 +62,14 @@ nnoremap gl :ls<CR>
 " List all possible buffers with "gb" and accept a new buffer argument [1]
 nnoremap gb :ls<CR>:b"
 
+" Remap jk combination into ESC to prevent reaching across keyboard 
+:inoremap jk <esc>
+:inoremap <esc> <nop>
+
 " For running Git diffs on Windows
 if has ("win32")
 	set shell=c:\windows\system32\cmd.exe
 	set diffexpr=
 endif	
+
+
