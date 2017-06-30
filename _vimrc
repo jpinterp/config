@@ -64,6 +64,7 @@ nnoremap gb :ls<CR>:b"
 
 " Remap jk combination into ESC to prevent reaching across keyboard 
 :inoremap jk <esc>
+:inoremap <esc> <nop>
 
 " For running Git diffs on Windows
 if has ("win32")
