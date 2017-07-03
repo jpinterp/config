@@ -72,4 +72,8 @@ if has ("win32")
 	set diffexpr=
 endif	
 
+" Simplify updating the .vimrc file
+let mapleader="-"
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
