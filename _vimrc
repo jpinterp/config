@@ -2,6 +2,8 @@ syntax on
 if has ("gui_running")
 	if has ("win32")
 		set guifont=Courier_New:h9
+	else
+		set guifont=Nimbus\ Mono\ L\ 11
 	endif
 	colors zenburn
 	if &diff
