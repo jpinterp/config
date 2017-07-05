@@ -1,9 +1,19 @@
 syntax on
+" The following method of determining the OS type was adapted from:
+"   https://stackoverflow.com/questions/9193066/how-do-i-inspect-vim-variables
+if has("win64") || has("win32") || has ("win16")
+	let g:os = "Windows"
+else
+	let g:os = substitute(system('uname'), '\n', '', '')
+endif
+
 if has ("gui_running")
-	if has ("win32")
-		set guifont=Courier_New:h9
-	else
+	if g:os == "Darwin"
+		set guifont=Fira\ Mono:h12
+	elseif g:os == "Linux"
 		set guifont=Nimbus\ Mono\ L\ 11
+	elseif g:os == "Windows"
+		set guifont=Courier_New:h9
 	endif
 	colors zenburn
 	if &diff
