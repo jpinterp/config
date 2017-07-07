@@ -11,7 +11,7 @@ if has ("gui_running")
 	if g:os == "Darwin"
 		set guifont=Fira\ Mono:h12
 	elseif g:os == "Linux"
-		set guifont=Nimbus\ Mono\ L\ 11
+		set guifont=Nimbus\ Mono\ L\ 13
 	elseif g:os == "Windows"
 		set guifont=Courier_New:h9
 	endif
@@ -75,8 +75,10 @@ nnoremap gl :ls<CR>
 nnoremap gb :ls<CR>:b"
 
 " Remap jk combination into ESC to prevent reaching across keyboard 
-:inoremap jk <esc>
-:inoremap <esc> <nop>
+inoremap jk <esc>
+inoremap <esc> <nop>
+vnoremap jk <esc>
+vnoremap <esc> <nop>
 
 " For running Git diffs on Windows
 if has ("win32")
@@ -84,7 +86,8 @@ if has ("win32")
 	set diffexpr=
 endif	
 
-" Simplify updating the .vimrc file
+" Simplify updating the .vimrc file, from:
+" learnvimscriptthehardway.stevelosh.com/chapters/07.html
 let mapleader="-"
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
