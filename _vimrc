@@ -75,10 +75,12 @@ nnoremap gl :ls<CR>
 nnoremap gb :ls<CR>:b"
 
 " Remap jk combination into ESC to prevent reaching across keyboard 
-inoremap jk <esc>
-inoremap <esc> <nop>
-vnoremap jk <esc>
-vnoremap <esc> <nop>
+" Disabling this because it does not work very well (slow) with
+" Visual Studio Code's VIM integration
+"inoremap jk <esc>
+"inoremap <esc> <nop>
+"vnoremap jk <esc>
+"vnoremap <esc> <nop>
 
 " For running Git diffs on Windows
 if has ("win32")
