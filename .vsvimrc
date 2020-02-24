@@ -1,0 +1,36 @@
+" Turn off modelines to mitigate vulnerability
+set nomodeline
+
+set backspace=indent,eol,start
+
+set ignorecase
+set clipboard=unnamed
+
+" Shortcuts - this is huge
+" View keyboard customizations to see available functionality
+map gd :vsc ReSharper.ReSharper_GotoDeclaration<CR>
+map gr :vsc Edit.FindAllReferences<CR>
+map gp :vsc Edit.PeekDefinition<CR>
+
+map <Space>cs :vsc Edit.CommentSelection<CR>
+map <Space>us :vsc Edit.UncommentSelection<CR>
+map <Space>fs :vsc Edit.FormatSelection<CR>
+
+" Remove and sort using statements
+map <Space>ru :vsc EditorContextMenus.CodeWindow.RemoveAndSort<CR>
+
+map <Space>r  :vsc ReSharper.ReSharper_Rename<CR>
+map <Space>ta :vsc ReSharper.ReSharper_UnitTestRunCurrentSession<CR>
+map <Space>td :vsc ReSharper.ReSharper_UnitTestDebugContext<CR>
+map <Space>tr :vsc ReSharper.ReSharper_UnitTestRunFromContext<CR>
+map <Space>/  :vsc ReSharper.ReSharper_LineComment<CR>
+
+map <Space>b  :vsc Build.BuildSelection<CR>
+map <Space>bs :vsc Build.BuildSolution<CR>
+map <Space>br :vsc Build.RebuildSolution<CR>
+
+map <Space>qk :vsc Tools.CustomizeKeyboard<CR>
+
+map <Space>vl :so ~/.vsvimrc<CR>
+
+
