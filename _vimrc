@@ -1,4 +1,8 @@
 syntax on
+
+" Turn off modelines to mitigate vulnerability
+set nomodeline
+
 " The following method of determining the OS type was adapted from:
 "   https://stackoverflow.com/questions/9193066/how-do-i-inspect-vim-variables
 if has("win64") || has("win32") || has ("win16")
@@ -15,13 +19,18 @@ if has ("gui_running")
 	elseif g:os == "Windows"
 		set guifont=Courier_New:h9
 	endif
+
+	" Use ZenBurn high contrast, overwrite visual mode so it is easier to see
+	let g:zenburn_high_Contrast = 1
 	colors zenburn
+	hi Visual    guifg=#313633 guibg=#ccdc90 gui=none
+
 	if &diff
 		" wide during diff to see both files
 		set columns=200
 	else
 		" narrow for editing text
-		set columns=120
+		set columns=160
 	endif
 	" Diff colors taken from theApprentice color scheme
 	" https://github.com/romainl/Apprentice/blob/master/colors/apprentice.vim
@@ -74,23 +83,13 @@ nnoremap gl :ls<CR>
 " List all possible buffers with "gb" and accept a new buffer argument [1]
 nnoremap gb :ls<CR>:b"
 
-" Remap jk combination into ESC to prevent reaching across keyboard 
-" Disabling this because it does not work very well (slow) with
-" Visual Studio Code's VIM integration
-"inoremap jk <esc>
-"inoremap <esc> <nop>
-"vnoremap jk <esc>
-"vnoremap <esc> <nop>
-
-" For running Git diffs on Windows
-if has ("win32")
-	set shell=c:\windows\system32\cmd.exe
-	set diffexpr=
-endif	
-
 " Simplify updating the .vimrc file, from:
 " learnvimscriptthehardway.stevelosh.com/chapters/07.html
-let mapleader="-"
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <space>ev :vsplit $MYVIMRC<cr>
+nnoremap <space>vl :source $MYVIMRC<cr>
+
+if has("statusline")
+ set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
+
 
